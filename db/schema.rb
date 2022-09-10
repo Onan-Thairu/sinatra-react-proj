@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_05_111651) do
+ActiveRecord::Schema.define(version: 2022_09_10_115416) do
 
   create_table "blockers", force: :cascade do |t|
-    t.string "username"
     t.text "description"
     t.string "tag"
     t.text "solution"
