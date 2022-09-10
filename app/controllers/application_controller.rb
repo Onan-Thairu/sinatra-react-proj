@@ -14,7 +14,6 @@ class ApplicationController < Sinatra::Base
 
   post "/blockers" do
     blocker = Blocker.create(
-      username: params[:username],
       description: params[:description],
       tag: params[:tag],
       solution: params[:solution],

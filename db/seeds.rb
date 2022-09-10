@@ -1,10 +1,10 @@
 puts "Seeding users..."
 
-onan = User.create({ username: "Onan" })
-ken = User.create({ username: "Ken" })
-mike = User.create({ username: "Mike" })
-rachel = User.create({ username: "Rachel" })
-joy = User.create({ username: "Joy" })
+onan = User.create({ username: "Onan", email: "onan@gmail.com", password:"test@123" })
+ken = User.create({ username: "Ken", email: "ken@gmail.com", password:"test@123"  })
+mike = User.create({ username: "Mike", email: "mike@gmail.com", password:"test@123"  })
+rachel = User.create({ username: "Rachel", email: "rachel@gmail.com", password:"test@123"  })
+joy = User.create({ username: "Joy", email: "joy@gmail.com", password:"test@123"  })
 
 # puts "Seeding blockers..."
 
