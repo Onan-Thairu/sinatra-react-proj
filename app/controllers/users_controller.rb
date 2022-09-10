@@ -11,14 +11,14 @@ class UsersController < ApplicationController
 
     # Validate our user.
     # Persist the new object.
-    if user.username.blank? || user.email.blank? || user.password.blank? do
+    if user.username.blank? || user.email.blank? || user.password.blank? || User.find_by_email(params[:email]) || User.find_by_username(params[:username])
       redirect "/signup"
     else
       user.save
       redirect "/blockers-list"
     end
     
-    # binding.pry
+    
     
   end
 
