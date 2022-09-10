@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_10_115416) do
+ActiveRecord::Schema.define(version: 2022_09_10_115757) do
 
   create_table "blockers", force: :cascade do |t|
     t.text "description"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2022_09_10_115416) do
     t.string "username"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
+    t.string "email"
   end
 
 end
