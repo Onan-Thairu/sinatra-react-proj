@@ -2,7 +2,7 @@ class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
   # Add your routes here
-  get "/blockers" do
+  get "/blockers-list" do
     blockers = Blocker.all.order(created_at: :desc)
     blockers.to_json
   end
