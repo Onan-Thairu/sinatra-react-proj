@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   # Responsible for anything involving our user
-
   # sign up
 
   post "/signup" do
@@ -15,14 +14,23 @@ class UsersController < ApplicationController
       redirect "/signup"
     else
       user.save
-      redirect "/blockers-list"
+      session[:user_id] = user.id
+      # redirect "/login"
     end
-    
-    
     
   end
 
   # login
+  post "/login" do
+    # find user object
+    user = User.find_by_email(params[:email])
+    # if author exists and password is correct
+    if author && author.authenticate(params[:password])
+      # login user
+      session[:user_id] = user.id
+      # redirect /blockers-list
+    end
+  end
 
   # logout
 end
