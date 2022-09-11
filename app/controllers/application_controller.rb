@@ -7,8 +7,9 @@ class ApplicationController < Sinatra::Base
   end
   
   # Add your routes here
-  get "/blockers-list" do
-    blockers = Blocker.all.order(created_at: :desc)
+  get "/blockers-list/:user_id" do
+    user = User.find_by_id(params[:user_id])
+    blockers = user.blockers
     blockers.to_json
   end
 
