@@ -23,8 +23,11 @@ class ApplicationController < Sinatra::Base
     blocker.to_json
   end
 
-  get "/blockers/:tag" do
-    Blocker.where("tag = ?", params[:tag]).order(created_at: :desc).to_json
+  get "/blockers/:user_id/:tag" do
+    # Blocker.where("tag = ?", params[:tag]).order(created_at: :desc).to_json
+    user = User.find_by_id(params[:user_id])
+    blockers = user.blockers.where("tag = ?", params[:tag])
+    blockers.to_json
   end
 
   delete "/blockers/:id" do
