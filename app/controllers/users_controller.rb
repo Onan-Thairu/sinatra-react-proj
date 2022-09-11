@@ -25,9 +25,11 @@ class UsersController < ApplicationController
     # find user object
     user = User.find_by_email(params[:email])
     # if author exists and password is correct
-    if author && author.authenticate(params[:password])
+    if user && user.authenticate(params[:password])
       # login user
       session[:user_id] = user.id
+      current_user = { user_id: session[:user_id] }.to_json
+      current_user
       # redirect '/blockers-list'
     end
   end
