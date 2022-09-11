@@ -28,9 +28,13 @@ class UsersController < ApplicationController
     if author && author.authenticate(params[:password])
       # login user
       session[:user_id] = user.id
-      # redirect /blockers-list
+      # redirect '/blockers-list'
     end
   end
 
   # logout
+  get '/logout' do
+    session.clear
+    #redirect '/login'
+  end
 end
