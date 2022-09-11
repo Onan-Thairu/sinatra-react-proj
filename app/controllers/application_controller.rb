@@ -30,8 +30,9 @@ class ApplicationController < Sinatra::Base
     blockers.to_json
   end
 
-  delete "/blockers/:id" do
-    blocker = Blocker.find(params[:id])
+  delete "/blockers/:user_id/:id" do
+    user = User.find_by_id(params[:user_id])
+    blocker = user.blockers.find_by_id(params[:id])
     blocker.destroy
     blocker.to_json
   end
