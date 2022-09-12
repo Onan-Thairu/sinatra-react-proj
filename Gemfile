@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-
+ruby "2.7.4"
 # A DSL for quickly creating web applications
 # https://github.com/sinatra/sinatra
 gem "sinatra", "~> 2.1"
@@ -37,6 +37,8 @@ gem "require_all", "~> 3.0"
 # Help us authenticate our user model
 gem 'bcrypt'
 
+gem 'sinatra-contrib', '~> 2.2', '>=2.2.2', require: false
+
 # These gems will only be used when we are running the application locally
 group :development do
   gem "pry", "~> 0.14.1"
@@ -54,6 +56,6 @@ group :test do
   gem "rspec-json_expectations", "~> 2.2"
 end
 
-# group :production do
-#   gem "pg"
-# end
+group :production do
+  gem 'pg', '~> 1.4', '>= 1.4.3'
+end
